@@ -1,0 +1,12 @@
+exec openbox-session
+
+#load bus
+eval `dbus-launch`
+export DBUS_SESSION_BUS_ADDRESS
+
+# Load Colors & Pulse
+pulseaudio -D &
+sleep 2
+start-pulseaudio-x11 &
+
+xrdb -load ~/.Xdefaultss
